@@ -1,1 +1,1 @@
-# holberton-system_engineering-devops
+This repo contains directories for the different projects within 0x00. Shell, basics.
