@@ -1,0 +1,1 @@
+The files contained in this directory, 0x03-shell_variables_expansions, contain the answers (in shell script format) to project 0x03.
