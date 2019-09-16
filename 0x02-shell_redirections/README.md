@@ -1,0 +1,1 @@
+This directory contains the answers to the Shell Redirections project, in the form of shell scripts.
