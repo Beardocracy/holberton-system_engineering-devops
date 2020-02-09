@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Prints a message 10 times, and adds Hi for the 9th iteration.
+# Prints a message 10 times, and with special messages for the 4th and 8th
 i=1
 while [ $i -lt 11 ]
 do
