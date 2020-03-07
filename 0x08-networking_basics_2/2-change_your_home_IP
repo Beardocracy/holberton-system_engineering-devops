@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # Changes lines in etc/hosts file
-
+IP=127.0.0.2
 cp /etc/hosts ~/hosts.temp
 sed -r "s/^ *[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+( +localhost)/$IP\1/" ~/hosts.temp
+cp -f ~/hosts.temp /etc/hosts
+IP=8.8.8.8
+cp /etc/hosts ~/hosts.temp
+sed -r "s/^ *[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+( +facebook.com)/$IP\1/" ~/hosts.temp
 cp -f ~/hosts.temp /etc/hosts
