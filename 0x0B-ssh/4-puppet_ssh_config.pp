@@ -1,5 +1,5 @@
-# This puppet file configures the SSH config
-file_line { 'No password authentication':
+# Configures the SSH config
+file_line { 'Refuse password authentication':
   path  => '~/.ssh/config',
   line  => 'KbdInteractiveAuthentication no',
   match => 'KbdInteractiveAuthentication yes',
