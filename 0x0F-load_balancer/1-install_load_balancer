@@ -7,7 +7,7 @@ sudo apt-get update -y
 sudo apt-get install -y haproxy
 
 echo \
-	     "
+"
 frontend localnodes
 	bind *:80
 	mode http
