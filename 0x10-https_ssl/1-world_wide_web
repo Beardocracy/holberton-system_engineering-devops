@@ -16,24 +16,24 @@ then
 	URL="$2.$1"
 	get_rec
 	get_ip
-	echo The subdomain "$URL" is a "$rec" record and points to "$IP"
+	echo The subdomain "$2" is a "$rec" record and points to "$IP"
 else
 	URL="$1"
 	get_rec
 	get_ip
-	echo The subdomain www."$URL" is a "$rec" record and points to "$IP"
+	echo The subdomain www is a "$rec" record and points to "$IP"
 	URL="lb-01.$1"
 	get_rec
 	get_ip
-	echo The subdomain "$URL" is a "$rec" record and points to "$IP"
+	echo The subdomain lb-01 is a "$rec" record and points to "$IP"
 	URL="web-01.$1"
 	get_rec
 	get_ip
-	echo The subdomain "$URL" is a "$rec" record and points to "$IP"
+	echo The subdomain web-01 is a "$rec" record and points to "$IP"
 	URL="web-02.$1"
 	get_rec
 	get_ip
-	echo The subdomain "$URL" is a "$rec" record and points to "$IP"
+	echo The subdomain web-02 is a "$rec" record and points to "$IP"
 fi
 
 exit 0
