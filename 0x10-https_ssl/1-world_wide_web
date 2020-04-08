@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Displays information about a domain and its subdomains
+# shellcheck disable=SC2086
 
 
 get_rec () {
