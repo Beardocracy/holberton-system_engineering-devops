@@ -14,7 +14,7 @@ data = {}
 for user in users_list:
     user_id = user['id']
     todo_resp = requests.get(todo_url + str(user_id))
-    user_todos = todo_resp.json()    
+    user_todos = todo_resp.json()
 
     task_data = [{
         "task":         todo['title'],
