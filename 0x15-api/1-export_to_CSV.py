@@ -20,7 +20,7 @@ todos_response = requests.get(todo_url + user_id)
 user_data = user_response.json()
 user_todos = todos_response.json()
 
-with open('USER_ID.csv', mode='w') as f:
+with open('{}.csv'.format(user_id), mode='w') as f:
     writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
 
     for todo in user_todos:
