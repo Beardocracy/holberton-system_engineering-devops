@@ -10,7 +10,7 @@ if __name__ == "__main__":
     if sys.argv[1]:
         user_id = sys.argv[1]
         if int(user_id) > 10 or int(user_id) < 1:
-            exit (0)
+            exit(0)
 
     user_response = requests.get(user_info_url + user_id)
     todos_response = requests.get(todo_url + user_id)
