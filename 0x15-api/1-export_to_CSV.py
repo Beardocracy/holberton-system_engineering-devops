@@ -29,7 +29,7 @@ if __name__ == "__main__":
         for todo in user_todos:
             writer.writerow([
                 user_id,
-                user_data['name'],
+                user_data['username'],
                 todo['completed'],
                 todo['title']
             ])
