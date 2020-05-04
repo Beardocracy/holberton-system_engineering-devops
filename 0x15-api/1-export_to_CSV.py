@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 ''' Gets info from API and outputs formatted data to CSV file '''
+import csv
 import requests
 import sys
-import csv
+
 
 if __name__ == "__main__":
     todo_url = 'https://jsonplaceholder.typicode.com/todos?userId='
@@ -11,7 +12,6 @@ if __name__ == "__main__":
     if sys.argv[1]:
         user_id = sys.argv[1]
         if int(user_id) > 10 or int(user_id) < 1:
-            print("Employee doesn't exist")
             exit(0)
 
     user_response = requests.get(user_info_url + user_id)
