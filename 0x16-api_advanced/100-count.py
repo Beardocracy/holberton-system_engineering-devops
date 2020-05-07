@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 ''' This module contains the count function  '''
+import re
 import requests
 
 
@@ -42,7 +43,9 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
         kw_count[kw] = 0
     for title in titles:
         for kw in word_list:
-            kw_count[kw] += title.lower().count(kw.lower())
+            expr = "(^|[ ]){}([ ]|$)".format(kw.lower())
+            matches = re.findall(r"{}".format(expr), title.lower())
+            kw_count[kw] += len(matches) 
     if print_flag == 1:
         for kw in sorted(kw_count, key=lambda kw: (-kw_count[kw], kw)):
             if kw_count[kw] > 0:
