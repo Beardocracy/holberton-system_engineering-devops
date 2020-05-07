@@ -12,7 +12,9 @@ def top_ten(subreddit):
     r = requests.get(url, headers=headers, params=params)
     data = r.json()
 
-    children = data['data']['children']
+    children = []
+    if 'data' in data.keys() and 'children' in data['data'].keys():
+        children = data['data']['children']
     if len(children) == 0:
         print("None")
     else:
