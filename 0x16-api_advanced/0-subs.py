@@ -11,6 +11,10 @@ def number_of_subscribers(subreddit):
     r = requests.get(url, headers=headers)
     data = r.json()
 
-    if data['kind'] != "t5":
+    if 'data' in data.keys():
+        if 'subscribers' in (data['data']).keys():
+            return (data['data']['subscribers'])
+        else:
+            return (0)
+    else:
         return (0)
-    return (data['data']['subscribers'])
