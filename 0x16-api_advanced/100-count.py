@@ -42,7 +42,7 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
         kw_count[kw] = 0
     for title in titles:
         for kw in word_list:
-            kw_count[kw] += title.count(kw)
+            kw_count[kw] += title.lower().count(kw.lower())
     if print_flag == 1:
         for kw in sorted(kw_count, key=lambda kw: (-kw_count[kw], kw)):
             if kw_count[kw] > 0:
