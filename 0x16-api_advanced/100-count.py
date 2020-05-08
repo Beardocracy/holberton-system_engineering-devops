@@ -12,7 +12,6 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
     headers = {'User-agent': 'tbearden'}
 
     if (len(word_list) == 0):
-        print()
         return (None)
     items = len(hot_list)
     if items == 0:
@@ -30,8 +29,6 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
     if 'data' in data.keys() and 'children' in data['data'].keys():
         children = data['data']['children']
     if len(children) == 0:
-        if len(hot_list) == 0:
-            print()
         return (None)
     else:
         for child in children:
