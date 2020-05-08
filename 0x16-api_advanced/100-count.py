@@ -32,16 +32,13 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
     if 'data' in data.keys() and 'children' in data['data'].keys():
         children = data['data']['children']
     if len(children) == 0:
-        return (None)
+        titles = [listing['data']['title'] for listing in hot_list]
+        print_matches(titles, word_list)
     else:
         for child in children:
             hot_list.append(child)
         print_flag += 1
         count_words(subreddit, word_list, hot_list, print_flag)
-
-    titles = [listing['data']['title'] for listing in hot_list]
-    if print_flag == 1:
-        print_matches(titles, word_list)
 
 
 def print_matches(titles, word_list):
