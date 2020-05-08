@@ -37,7 +37,7 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
         print_flag += 1
         count_words(subreddit, word_list, hot_list, print_flag)
 
-    titles = [listing['data']['title'].lower() for listing in hot_list]
+    titles = [listing['data']['title'] for listing in hot_list]
     if print_flag == 1:
         print_matches(titles, word_list)
 
