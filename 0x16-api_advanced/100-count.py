@@ -44,7 +44,9 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
 
 def print_matches(titles, word_list):
     ''' Prints out the keyword match rankings '''
+    '''
     word_list = set([x.lower() for x in word_list])
+    '''
     kw_count = {}
     for kw in word_list:
         kw_count[kw] = 0
