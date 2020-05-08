@@ -11,9 +11,6 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {'User-agent': 'tbearden'}
 
-    if (len(word_list) == 0):
-        print()
-        return (None)
     items = len(hot_list)
     if items == 0:
         params = {'limit': 100}
