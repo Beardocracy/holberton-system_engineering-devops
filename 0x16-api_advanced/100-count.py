@@ -30,7 +30,7 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
     if 'data' in data.keys() and 'children' in data['data'].keys():
         children = data['data']['children']
     if len(children) == 0:
-        return (1)
+        return (None)
     else:
         for child in children:
             hot_list.append(child)
