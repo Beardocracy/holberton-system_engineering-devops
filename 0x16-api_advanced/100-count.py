@@ -50,4 +50,3 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
         for kw in sorted(kw_count, key=lambda kw: (-kw_count[kw], kw)):
             if kw_count[kw] > 0:
                 print("{}: {}".format(kw, kw_count[kw]))
-    return (1)
