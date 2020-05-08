@@ -28,6 +28,7 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
     children = []
     if 'data' in data.keys() and 'children' in data['data'].keys():
         children = data['data']['children']
+
     if len(children) == 0:
         titles = [listing['data']['title'] for listing in hot_list]
         print_matches(titles, word_list)
@@ -51,6 +52,7 @@ def print_matches(titles, word_list):
             expr = "(?:^| ){}(?:$| )".format(kw)
             matches = re.findall(r"{}".format(expr), title, re.I)
             kw_count[kw] += len(matches)
-    for kw in sorted(kw_count, key=lambda kw: (-kw_count[kw], kw)):
+    kw_count = {k: v for k, v in kw_count.items() if v > 0}
+    for kw in sorted(kw_count, reverse=True, key=lambda kw: kw_count[kw]):
         if kw_count[kw] > 0:
             print("{}: {}".format(kw, kw_count[kw]))
