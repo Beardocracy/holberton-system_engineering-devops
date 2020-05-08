@@ -24,6 +24,8 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
         params = {'after': last_fullname, 'limit': 100}
 
     r = requests.get(url, headers=headers, params=params)
+    if r.status_code != 200:
+        return None
     data = r.json()
 
     children = []
