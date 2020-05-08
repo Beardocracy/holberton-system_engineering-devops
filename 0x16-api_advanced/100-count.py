@@ -48,7 +48,7 @@ def print_matches(titles, word_list):
         kw_count[kw] = 0
     for title in titles:
         for kw in word_list:
-            expr = "(^|[ ]){}([ ]|$)".format(kw)
+            expr = "(?:^| ){}(?:$| )".format(kw)
             matches = re.findall(r"{}".format(expr), title, re.I)
             kw_count[kw] += len(matches)
     for kw in sorted(kw_count, key=lambda kw: (-kw_count[kw], kw)):
