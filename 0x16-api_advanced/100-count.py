@@ -38,6 +38,12 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
         count_words(subreddit, word_list, hot_list, print_flag)
 
     titles = [listing['data']['title'].lower() for listing in hot_list]
+    if print_flag == 1:
+        print_matches(titles, word_list)
+
+
+def print_matches(titles, word_list):
+    ''' Prints out the keyword match rankings '''
     word_list = set([x.lower() for x in word_list])
     kw_count = {}
     for kw in word_list:
@@ -45,9 +51,8 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
     for title in titles:
         for kw in word_list:
             expr = "(^|[ ]){}([ ]|$)".format(kw)
-            matches = re.findall(r"{}".format(expr), title)
+            matches = re.findall(r"{}".format(expr), title, re.I)
             kw_count[kw] += len(matches)
-    if print_flag == 1:
-        for kw in sorted(kw_count, key=lambda kw: (-kw_count[kw], kw)):
-            if kw_count[kw] > 0:
-                print("{}: {}".format(kw, kw_count[kw]))
+    for kw in sorted(kw_count, key=lambda kw: (-kw_count[kw], kw)):
+        if kw_count[kw] > 0:
+            print("{}: {}".format(kw, kw_count[kw]))
