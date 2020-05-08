@@ -43,7 +43,7 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
         kw_count[kw] = 0
     for title in titles:
         for kw in word_list:
-            expr = "[ ]{}[ ]".format(kw.lower())
+            expr = "(^|[ ]){}([ ]|$)".format(kw.lower())
             matches = re.findall(r"{}".format(expr), title.lower())
             kw_count[kw] += len(matches) 
     if print_flag == 1:
