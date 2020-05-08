@@ -12,6 +12,7 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
     headers = {'User-agent': 'tbearden'}
 
     if (len(word_list) == 0):
+        print()
         return (None)
     items = len(hot_list)
     if items == 0:
