@@ -36,15 +36,16 @@ def count_words(subreddit, word_list, hot_list=[], print_flag=0):
         print_flag += 1
         count_words(subreddit, word_list, hot_list, print_flag)
 
-    titles = [listing['data']['title'] for listing in hot_list]
+    titles = [listing['data']['title'].lower() for listing in hot_list]
+    word_list = set([x.lower() for x in word_list])
     kw_count = {}
     for kw in word_list:
         kw_count[kw] = 0
     for title in titles:
         for kw in word_list:
-            expr = "(^|[ ]){}([ ]|$)".format(kw.lower())
-            matches = re.findall(r"{}".format(expr), title.lower())
-            kw_count[kw] += len(matches) 
+            expr = "(^|[ ]){}([ ]|$)".format(kw)
+            matches = re.findall(r"{}".format(expr), title)
+            kw_count[kw] += len(matches)
     if print_flag == 1:
         for kw in sorted(kw_count, key=lambda kw: (-kw_count[kw], kw)):
             if kw_count[kw] > 0:
